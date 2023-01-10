@@ -13,16 +13,23 @@
 </body>
 <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-<script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
   const root = document.getElementById("root")
-  const span = React.createElement("h3", {
-    onMouseEnter: () => console.log("mouse enter")
-  }, "Hello, I'm span")
-  const btn = React.createElement("button", {
-    onClick: () => console.log("click!")
-  }, "click me!")
-  const container = React.createElement("div", null, [span, btn])
-  ReactDOM.render(container, root)
+  const Title = () => (<h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm span</h3>)
+  // const span = React.createElement("h3", {
+  //   onMouseEnter: () => console.log("mouse enter")
+  // }, "Hello, I'm span")
+  const Button = () => (<button onClick={() => console.log("click!")} style={{color: "tomato"}}>click me!</button>)
+  // const btn = React.createElement("button", {
+  //   onClick: () => console.log("click!")
+  // }, "click me!")
+  const Container = () => (<div>Title Button
+    <Title />
+    <Button />
+    </div>)
+  // const container = React.createElement("div", null, [Title, Button])
+  ReactDOM.render(<Container />, root)
 </script>
 
 </html>
